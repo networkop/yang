@@ -1,8 +1,0 @@
-
-from operator import attrgetter
-from pyangbind.lib.yangtypes import RestrictedPrecisionDecimalType, RestrictedClassType, TypedListType
-from pyangbind.lib.yangtypes import YANGBool, YANGListType, YANGDynClass, ReferenceType
-from pyangbind.lib.base import PybindBase
-from decimal import Decimal
-from bitarray import bitarray
-import __builtin__

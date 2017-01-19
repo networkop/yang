@@ -15,7 +15,7 @@
 ### 3. Generate python bindings  
 
 ```bash
-pyang --plugindir $PYBINDPLUGIN -f pybind -o ietf_ip.py ietf-ip.yang ietf-interfaces.yang ietf-inet-types.yang ietf-inet-types.yang
+pyang --plugindir $PYBINDPLUGIN -f pybind -o binding.py ietf-ip.yang ietf-interfaces.yang ietf-inet-types.yang ietf-inet-types.yang
 ```
 
 ### 4. Generate JSON configuration file  

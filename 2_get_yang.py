@@ -28,6 +28,7 @@ def main():
 
     for yang in args.yang:
         yang_text = get_schema(args.host, args.port, args.user, args.password, yang)
+        print("Downloaded model: {}".format(yang))
         write_file('{}.yang'.format(yang), yang_text)
 
 

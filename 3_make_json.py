@@ -8,12 +8,15 @@ import argparse
 import yaml
 import sys
 
-def make_json(intf,conf):
+def make_json(yml):
     model = ietf_interfaces()
-    intf_model = model.interfaces.interface.add(intf)
-    intf_model.description = conf['description']
-    ip_model = intf_model.ipv4.address.add(conf['address']['prefix'])
-    ip_model.netmask = conf['address']['netmask']
+    for intf,conf in yml['interface'].iteritems():
+        print("Instantiating model for {}".format(intf))
+        intf_model = model.interfaces.interface.add(intf)
+        intf_model.description = conf['description']
+        ip_model = intf_model.ipv4.address.add(conf['address']['prefix'])
+        ip_model.netmask = conf['address']['netmask']
+        print("Done")
     return pybindJSON.dumps(model, mode = 'ietf') 
        
  
@@ -24,9 +27,10 @@ def main():
 
     yml = yaml.load(read_file(args.interface))
     
-    for intf,conf in yml['interface'].iteritems():
-        json = make_json(intf, conf)
-        write_file('interface.json', json)
+    result_json = make_json(yml)
 
+    write_file('interface.json', result_json)
+
+ 
 if __name__ == '__main__':
     sys.exit(main())

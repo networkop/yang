@@ -5,3 +5,8 @@ interface:
       prefix: 12.12.12.2
       netmask: 255.255.255.0
     description: NETCONF-CONFIGURED INTERFACE!
+  GigabitEthernet3:
+    address:
+      prefix: 13.13.13.33
+      netmask: 255.255.255.0
+    description: ANOTHER INTERFACE FROM NETCONF

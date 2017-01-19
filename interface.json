@@ -12,6 +12,18 @@
                 }, 
                 "description": "NETCONF-CONFIGURED INTERFACE!", 
                 "name": "GigabitEthernet2"
+            }, 
+            {
+                "ietf-ip:ipv4": {
+                    "address": [
+                        {
+                            "ip": "13.13.13.33", 
+                            "netmask": "255.255.255.0"
+                        }
+                    ]
+                }, 
+                "description": "ANOTHER INTERFACE FROM NETCONF", 
+                "name": "GigabitEthernet3"
             }
         ]
     }

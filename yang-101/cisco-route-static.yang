@@ -1,0 +1,78 @@
+module cisco-route-static {
+ namespace "http://cisco.com/ns/yang/ned/ios";
+ prefix ios;
+
+ import ietf-yang-types {
+   prefix "yang";
+ }
+
+ import ietf-inet-types {
+  prefix "inet";
+}
+
+ organization "NETWORKOP";
+ contact "@@network_op";
+ description "IOS XE native static IP route model";
+ revision 2017-02-10 {
+   description "Initial revision";
+ }
+
+
+  typedef ip-next-hop {
+    type union {
+      type inet:ipv4-address;
+      type string;
+    }
+  }
+
+  grouping track-or-perm {
+    choice route-type {
+      leaf track { type uint8; }
+      leaf permanent { type empty; }
+    }
+  }
+
+  grouping next-hop-list {
+    list fwd-list {
+      key "fwd";
+      description "List of IPv4 next-hop addresses associated with an IPv4 prefix";
+      leaf fwd { type ip-next-hop; }
+      leaf forwarding-router-adr { type inet:ipv4-address; }
+      leaf metric { type uint8; }
+      leaf name { type string; }
+      leaf tag { type uint8; }
+      uses track-or-perm;
+    }
+  }
+
+  grouping ip-route-list {
+    list ip-route-interface-forwarding-list {
+      key "prefix mask";
+      description "List of static IP routes. Each destination is uniquely identified by a combination of IP prefix and netmask";
+      leaf prefix {
+        type inet:ipv4-address;
+        description "IPv4 network address";
+      }
+      leaf mask {
+        type yang:dotted-quad;
+        description "IPv4 network mask";
+      }
+      uses next-hop-list;
+    }
+  }
+
+  grouping vrf-grouping {
+    list vrf {
+      key "name";
+      description "List of VRF static routes";
+      leaf name { type string; }
+      uses ip-route-list;
+    }
+  }
+
+  container route {
+    uses vrf-grouping;
+    uses ip-route-list;
+  }
+}
+

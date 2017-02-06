@@ -1,0 +1,50 @@
+{
+  "ned:route": {
+    "ip-route-interface-forwarding-list": [
+      {
+        "prefix": "1.1.1.1",
+        "mask": "255.255.255.255",
+        "fwd-list": [
+          {
+            "fwd": "GigabitEthernet2"
+          }
+        ]
+      },
+      {
+        "prefix": "2.2.2.2",
+        "mask": "255.255.255.255",
+        "fwd-list": [
+          {
+            "fwd": "GigabitEthernet2"
+          }
+        ]
+      },
+      {
+        "prefix": "4.4.4.0",
+        "mask": "255.255.255.0",
+        "fwd-list": [
+          {
+            "fwd": "12.12.12.2",
+            "name": "TER"
+          }
+        ]
+      }
+    ],
+    "vrf": [
+      {
+        "name": "asd",
+        "ip-route-interface-forwarding-list": [
+          {
+            "prefix": "1.1.1.1",
+            "mask": "255.255.255.255",
+            "fwd-list": [
+              {
+                "fwd": "Null0"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

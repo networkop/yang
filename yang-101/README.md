@@ -1,6 +1,6 @@
 ## Example workflow of using RESTCONF to modify existing static routes
 
-### 1. Get current configuration of static routes 
+### 1. (Optional) Get the current configuration of static routes 
 ```bash
 curl -v -k -u admin:admin -H "Accept: application/vnd.yang.data+json" http://192.168.145.51/restconf/api/config/native/ip/route?deep > current.json
 ```
@@ -29,7 +29,7 @@ pyang -f jtox -o static-route.jtox cisco-route-static.yang
 ### 6. Send generated XML via RESTCONF
 ```bash
 curl -v -k -u admin:admin -H "Content-Type: application/vnd.yang.data+xml" \
- -X PATCH http://192.168.145.51/restconf/api/config/native/ip/route/ -d @new_conf.xml
+ -X PUT http://192.168.145.51/restconf/api/config/native/ip/route/ -d @new_conf.xml
 ```
 
 ---

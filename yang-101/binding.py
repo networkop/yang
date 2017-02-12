@@ -31,8 +31,8 @@ class yc_fwd_list_cisco_route_static__route_vrf_ip_route_interface_forwarding_li
     self.__metric = YANGDynClass(base=RestrictedClassType(base_type=int, restriction_dict={'range': ['0..255']}, int_size=8), is_leaf=True, yang_name="metric", parent=self, path_helper=self._path_helper, extmethods=self._extmethods, register_paths=True, namespace='http://cisco.com/ns/yang/ned/ios', defining_module='cisco-route-static', yang_type='uint8', is_config=True)
     self.__forwarding_router_adr = YANGDynClass(base=RestrictedClassType(base_type=unicode, restriction_dict={'pattern': u'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'}), is_leaf=True, yang_name="forwarding-router-adr", parent=self, path_helper=self._path_helper, extmethods=self._extmethods, register_paths=True, namespace='http://cisco.com/ns/yang/ned/ios', defining_module='cisco-route-static', yang_type='inet:ipv4-address', is_config=True)
     self.__tag = YANGDynClass(base=RestrictedClassType(base_type=int, restriction_dict={'range': ['0..255']}, int_size=8), is_leaf=True, yang_name="tag", parent=self, path_helper=self._path_helper, extmethods=self._extmethods, register_paths=True, namespace='http://cisco.com/ns/yang/ned/ios', defining_module='cisco-route-static', yang_type='uint8', is_config=True)
-    self.__track = YANGDynClass(base=RestrictedClassType(base_type=int, restriction_dict={'range': ['0..255']}, int_size=8), is_leaf=True, yang_name="track", parent=self, choice=(u'route-type', u'track'), path_helper=self._path_helper, extmethods=self._extmethods, register_paths=True, namespace='http://cisco.com/ns/yang/ned/ios', defining_module='cisco-route-static', yang_type='uint8', is_config=True)
-    self.__permanent = YANGDynClass(base=YANGBool, is_leaf=True, yang_name="permanent", parent=self, choice=(u'route-type', u'permanent'), path_helper=self._path_helper, extmethods=self._extmethods, register_paths=True, namespace='http://cisco.com/ns/yang/ned/ios', defining_module='cisco-route-static', yang_type='empty', is_config=True)
+    self.__track = YANGDynClass(base=RestrictedClassType(base_type=int, restriction_dict={'range': ['0..255']}, int_size=8), is_leaf=True, yang_name="track", parent=self, choice=(u'track-or-perm', u'track'), path_helper=self._path_helper, extmethods=self._extmethods, register_paths=True, namespace='http://cisco.com/ns/yang/ned/ios', defining_module='cisco-route-static', yang_type='uint8', is_config=True)
+    self.__permanent = YANGDynClass(base=YANGBool, is_leaf=True, yang_name="permanent", parent=self, choice=(u'track-or-perm', u'permanent'), path_helper=self._path_helper, extmethods=self._extmethods, register_paths=True, namespace='http://cisco.com/ns/yang/ned/ios', defining_module='cisco-route-static', yang_type='empty', is_config=True)
 
     load = kwargs.pop("load", None)
     if args:
@@ -248,12 +248,12 @@ class yc_fwd_list_cisco_route_static__route_vrf_ip_route_interface_forwarding_li
     if hasattr(v, "_utype"):
       v = v._utype(v)
     try:
-      t = YANGDynClass(v,base=RestrictedClassType(base_type=int, restriction_dict={'range': ['0..255']}, int_size=8), is_leaf=True, yang_name="track", parent=self, choice=(u'route-type', u'track'), path_helper=self._path_helper, extmethods=self._extmethods, register_paths=True, namespace='http://cisco.com/ns/yang/ned/ios', defining_module='cisco-route-static', yang_type='uint8', is_config=True)
+      t = YANGDynClass(v,base=RestrictedClassType(base_type=int, restriction_dict={'range': ['0..255']}, int_size=8), is_leaf=True, yang_name="track", parent=self, choice=(u'track-or-perm', u'track'), path_helper=self._path_helper, extmethods=self._extmethods, register_paths=True, namespace='http://cisco.com/ns/yang/ned/ios', defining_module='cisco-route-static', yang_type='uint8', is_config=True)
     except (TypeError, ValueError):
       raise ValueError({
           'error-string': """track must be of a type compatible with uint8""",
           'defined-type': "uint8",
-          'generated-type': """YANGDynClass(base=RestrictedClassType(base_type=int, restriction_dict={'range': ['0..255']}, int_size=8), is_leaf=True, yang_name="track", parent=self, choice=(u'route-type', u'track'), path_helper=self._path_helper, extmethods=self._extmethods, register_paths=True, namespace='http://cisco.com/ns/yang/ned/ios', defining_module='cisco-route-static', yang_type='uint8', is_config=True)""",
+          'generated-type': """YANGDynClass(base=RestrictedClassType(base_type=int, restriction_dict={'range': ['0..255']}, int_size=8), is_leaf=True, yang_name="track", parent=self, choice=(u'track-or-perm', u'track'), path_helper=self._path_helper, extmethods=self._extmethods, register_paths=True, namespace='http://cisco.com/ns/yang/ned/ios', defining_module='cisco-route-static', yang_type='uint8', is_config=True)""",
         })
 
     self.__track = t
@@ -261,7 +261,7 @@ class yc_fwd_list_cisco_route_static__route_vrf_ip_route_interface_forwarding_li
       self._set()
 
   def _unset_track(self):
-    self.__track = YANGDynClass(base=RestrictedClassType(base_type=int, restriction_dict={'range': ['0..255']}, int_size=8), is_leaf=True, yang_name="track", parent=self, choice=(u'route-type', u'track'), path_helper=self._path_helper, extmethods=self._extmethods, register_paths=True, namespace='http://cisco.com/ns/yang/ned/ios', defining_module='cisco-route-static', yang_type='uint8', is_config=True)
+    self.__track = YANGDynClass(base=RestrictedClassType(base_type=int, restriction_dict={'range': ['0..255']}, int_size=8), is_leaf=True, yang_name="track", parent=self, choice=(u'track-or-perm', u'track'), path_helper=self._path_helper, extmethods=self._extmethods, register_paths=True, namespace='http://cisco.com/ns/yang/ned/ios', defining_module='cisco-route-static', yang_type='uint8', is_config=True)
 
 
   def _get_permanent(self):
@@ -281,12 +281,12 @@ class yc_fwd_list_cisco_route_static__route_vrf_ip_route_interface_forwarding_li
     if hasattr(v, "_utype"):
       v = v._utype(v)
     try:
-      t = YANGDynClass(v,base=YANGBool, is_leaf=True, yang_name="permanent", parent=self, choice=(u'route-type', u'permanent'), path_helper=self._path_helper, extmethods=self._extmethods, register_paths=True, namespace='http://cisco.com/ns/yang/ned/ios', defining_module='cisco-route-static', yang_type='empty', is_config=True)
+      t = YANGDynClass(v,base=YANGBool, is_leaf=True, yang_name="permanent", parent=self, choice=(u'track-or-perm', u'permanent'), path_helper=self._path_helper, extmethods=self._extmethods, register_paths=True, namespace='http://cisco.com/ns/yang/ned/ios', defining_module='cisco-route-static', yang_type='empty', is_config=True)
     except (TypeError, ValueError):
       raise ValueError({
           'error-string': """permanent must be of a type compatible with empty""",
           'defined-type': "empty",
-          'generated-type': """YANGDynClass(base=YANGBool, is_leaf=True, yang_name="permanent", parent=self, choice=(u'route-type', u'permanent'), path_helper=self._path_helper, extmethods=self._extmethods, register_paths=True, namespace='http://cisco.com/ns/yang/ned/ios', defining_module='cisco-route-static', yang_type='empty', is_config=True)""",
+          'generated-type': """YANGDynClass(base=YANGBool, is_leaf=True, yang_name="permanent", parent=self, choice=(u'track-or-perm', u'permanent'), path_helper=self._path_helper, extmethods=self._extmethods, register_paths=True, namespace='http://cisco.com/ns/yang/ned/ios', defining_module='cisco-route-static', yang_type='empty', is_config=True)""",
         })
 
     self.__permanent = t
@@ -294,7 +294,7 @@ class yc_fwd_list_cisco_route_static__route_vrf_ip_route_interface_forwarding_li
       self._set()
 
   def _unset_permanent(self):
-    self.__permanent = YANGDynClass(base=YANGBool, is_leaf=True, yang_name="permanent", parent=self, choice=(u'route-type', u'permanent'), path_helper=self._path_helper, extmethods=self._extmethods, register_paths=True, namespace='http://cisco.com/ns/yang/ned/ios', defining_module='cisco-route-static', yang_type='empty', is_config=True)
+    self.__permanent = YANGDynClass(base=YANGBool, is_leaf=True, yang_name="permanent", parent=self, choice=(u'track-or-perm', u'permanent'), path_helper=self._path_helper, extmethods=self._extmethods, register_paths=True, namespace='http://cisco.com/ns/yang/ned/ios', defining_module='cisco-route-static', yang_type='empty', is_config=True)
 
   fwd = __builtin__.property(_get_fwd, _set_fwd)
   forwarding_router_adr = __builtin__.property(_get_forwarding_router_adr, _set_forwarding_router_adr)
@@ -304,7 +304,7 @@ class yc_fwd_list_cisco_route_static__route_vrf_ip_route_interface_forwarding_li
   track = __builtin__.property(_get_track, _set_track)
   permanent = __builtin__.property(_get_permanent, _set_permanent)
 
-  __choices__ = {u'route-type': {u'track': [u'track'], u'permanent': [u'permanent']}}
+  __choices__ = {u'track-or-perm': {u'track': [u'track'], u'permanent': [u'permanent']}}
   _pyangbind_elements = {'fwd': fwd, 'forwarding_router_adr': forwarding_router_adr, 'metric': metric, 'name': name, 'tag': tag, 'track': track, 'permanent': permanent, }
 
 
@@ -643,8 +643,8 @@ class yc_fwd_list_cisco_route_static__route_ip_route_interface_forwarding_list_f
     self.__metric = YANGDynClass(base=RestrictedClassType(base_type=int, restriction_dict={'range': ['0..255']}, int_size=8), is_leaf=True, yang_name="metric", parent=self, path_helper=self._path_helper, extmethods=self._extmethods, register_paths=True, namespace='http://cisco.com/ns/yang/ned/ios', defining_module='cisco-route-static', yang_type='uint8', is_config=True)
     self.__forwarding_router_adr = YANGDynClass(base=RestrictedClassType(base_type=unicode, restriction_dict={'pattern': u'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'}), is_leaf=True, yang_name="forwarding-router-adr", parent=self, path_helper=self._path_helper, extmethods=self._extmethods, register_paths=True, namespace='http://cisco.com/ns/yang/ned/ios', defining_module='cisco-route-static', yang_type='inet:ipv4-address', is_config=True)
     self.__tag = YANGDynClass(base=RestrictedClassType(base_type=int, restriction_dict={'range': ['0..255']}, int_size=8), is_leaf=True, yang_name="tag", parent=self, path_helper=self._path_helper, extmethods=self._extmethods, register_paths=True, namespace='http://cisco.com/ns/yang/ned/ios', defining_module='cisco-route-static', yang_type='uint8', is_config=True)
-    self.__track = YANGDynClass(base=RestrictedClassType(base_type=int, restriction_dict={'range': ['0..255']}, int_size=8), is_leaf=True, yang_name="track", parent=self, choice=(u'route-type', u'track'), path_helper=self._path_helper, extmethods=self._extmethods, register_paths=True, namespace='http://cisco.com/ns/yang/ned/ios', defining_module='cisco-route-static', yang_type='uint8', is_config=True)
-    self.__permanent = YANGDynClass(base=YANGBool, is_leaf=True, yang_name="permanent", parent=self, choice=(u'route-type', u'permanent'), path_helper=self._path_helper, extmethods=self._extmethods, register_paths=True, namespace='http://cisco.com/ns/yang/ned/ios', defining_module='cisco-route-static', yang_type='empty', is_config=True)
+    self.__track = YANGDynClass(base=RestrictedClassType(base_type=int, restriction_dict={'range': ['0..255']}, int_size=8), is_leaf=True, yang_name="track", parent=self, choice=(u'track-or-perm', u'track'), path_helper=self._path_helper, extmethods=self._extmethods, register_paths=True, namespace='http://cisco.com/ns/yang/ned/ios', defining_module='cisco-route-static', yang_type='uint8', is_config=True)
+    self.__permanent = YANGDynClass(base=YANGBool, is_leaf=True, yang_name="permanent", parent=self, choice=(u'track-or-perm', u'permanent'), path_helper=self._path_helper, extmethods=self._extmethods, register_paths=True, namespace='http://cisco.com/ns/yang/ned/ios', defining_module='cisco-route-static', yang_type='empty', is_config=True)
 
     load = kwargs.pop("load", None)
     if args:
@@ -860,12 +860,12 @@ class yc_fwd_list_cisco_route_static__route_ip_route_interface_forwarding_list_f
     if hasattr(v, "_utype"):
       v = v._utype(v)
     try:
-      t = YANGDynClass(v,base=RestrictedClassType(base_type=int, restriction_dict={'range': ['0..255']}, int_size=8), is_leaf=True, yang_name="track", parent=self, choice=(u'route-type', u'track'), path_helper=self._path_helper, extmethods=self._extmethods, register_paths=True, namespace='http://cisco.com/ns/yang/ned/ios', defining_module='cisco-route-static', yang_type='uint8', is_config=True)
+      t = YANGDynClass(v,base=RestrictedClassType(base_type=int, restriction_dict={'range': ['0..255']}, int_size=8), is_leaf=True, yang_name="track", parent=self, choice=(u'track-or-perm', u'track'), path_helper=self._path_helper, extmethods=self._extmethods, register_paths=True, namespace='http://cisco.com/ns/yang/ned/ios', defining_module='cisco-route-static', yang_type='uint8', is_config=True)
     except (TypeError, ValueError):
       raise ValueError({
           'error-string': """track must be of a type compatible with uint8""",
           'defined-type': "uint8",
-          'generated-type': """YANGDynClass(base=RestrictedClassType(base_type=int, restriction_dict={'range': ['0..255']}, int_size=8), is_leaf=True, yang_name="track", parent=self, choice=(u'route-type', u'track'), path_helper=self._path_helper, extmethods=self._extmethods, register_paths=True, namespace='http://cisco.com/ns/yang/ned/ios', defining_module='cisco-route-static', yang_type='uint8', is_config=True)""",
+          'generated-type': """YANGDynClass(base=RestrictedClassType(base_type=int, restriction_dict={'range': ['0..255']}, int_size=8), is_leaf=True, yang_name="track", parent=self, choice=(u'track-or-perm', u'track'), path_helper=self._path_helper, extmethods=self._extmethods, register_paths=True, namespace='http://cisco.com/ns/yang/ned/ios', defining_module='cisco-route-static', yang_type='uint8', is_config=True)""",
         })
 
     self.__track = t
@@ -873,7 +873,7 @@ class yc_fwd_list_cisco_route_static__route_ip_route_interface_forwarding_list_f
       self._set()
 
   def _unset_track(self):
-    self.__track = YANGDynClass(base=RestrictedClassType(base_type=int, restriction_dict={'range': ['0..255']}, int_size=8), is_leaf=True, yang_name="track", parent=self, choice=(u'route-type', u'track'), path_helper=self._path_helper, extmethods=self._extmethods, register_paths=True, namespace='http://cisco.com/ns/yang/ned/ios', defining_module='cisco-route-static', yang_type='uint8', is_config=True)
+    self.__track = YANGDynClass(base=RestrictedClassType(base_type=int, restriction_dict={'range': ['0..255']}, int_size=8), is_leaf=True, yang_name="track", parent=self, choice=(u'track-or-perm', u'track'), path_helper=self._path_helper, extmethods=self._extmethods, register_paths=True, namespace='http://cisco.com/ns/yang/ned/ios', defining_module='cisco-route-static', yang_type='uint8', is_config=True)
 
 
   def _get_permanent(self):
@@ -893,12 +893,12 @@ class yc_fwd_list_cisco_route_static__route_ip_route_interface_forwarding_list_f
     if hasattr(v, "_utype"):
       v = v._utype(v)
     try:
-      t = YANGDynClass(v,base=YANGBool, is_leaf=True, yang_name="permanent", parent=self, choice=(u'route-type', u'permanent'), path_helper=self._path_helper, extmethods=self._extmethods, register_paths=True, namespace='http://cisco.com/ns/yang/ned/ios', defining_module='cisco-route-static', yang_type='empty', is_config=True)
+      t = YANGDynClass(v,base=YANGBool, is_leaf=True, yang_name="permanent", parent=self, choice=(u'track-or-perm', u'permanent'), path_helper=self._path_helper, extmethods=self._extmethods, register_paths=True, namespace='http://cisco.com/ns/yang/ned/ios', defining_module='cisco-route-static', yang_type='empty', is_config=True)
     except (TypeError, ValueError):
       raise ValueError({
           'error-string': """permanent must be of a type compatible with empty""",
           'defined-type': "empty",
-          'generated-type': """YANGDynClass(base=YANGBool, is_leaf=True, yang_name="permanent", parent=self, choice=(u'route-type', u'permanent'), path_helper=self._path_helper, extmethods=self._extmethods, register_paths=True, namespace='http://cisco.com/ns/yang/ned/ios', defining_module='cisco-route-static', yang_type='empty', is_config=True)""",
+          'generated-type': """YANGDynClass(base=YANGBool, is_leaf=True, yang_name="permanent", parent=self, choice=(u'track-or-perm', u'permanent'), path_helper=self._path_helper, extmethods=self._extmethods, register_paths=True, namespace='http://cisco.com/ns/yang/ned/ios', defining_module='cisco-route-static', yang_type='empty', is_config=True)""",
         })
 
     self.__permanent = t
@@ -906,7 +906,7 @@ class yc_fwd_list_cisco_route_static__route_ip_route_interface_forwarding_list_f
       self._set()
 
   def _unset_permanent(self):
-    self.__permanent = YANGDynClass(base=YANGBool, is_leaf=True, yang_name="permanent", parent=self, choice=(u'route-type', u'permanent'), path_helper=self._path_helper, extmethods=self._extmethods, register_paths=True, namespace='http://cisco.com/ns/yang/ned/ios', defining_module='cisco-route-static', yang_type='empty', is_config=True)
+    self.__permanent = YANGDynClass(base=YANGBool, is_leaf=True, yang_name="permanent", parent=self, choice=(u'track-or-perm', u'permanent'), path_helper=self._path_helper, extmethods=self._extmethods, register_paths=True, namespace='http://cisco.com/ns/yang/ned/ios', defining_module='cisco-route-static', yang_type='empty', is_config=True)
 
   fwd = __builtin__.property(_get_fwd, _set_fwd)
   forwarding_router_adr = __builtin__.property(_get_forwarding_router_adr, _set_forwarding_router_adr)
@@ -916,7 +916,7 @@ class yc_fwd_list_cisco_route_static__route_ip_route_interface_forwarding_list_f
   track = __builtin__.property(_get_track, _set_track)
   permanent = __builtin__.property(_get_permanent, _set_permanent)
 
-  __choices__ = {u'route-type': {u'track': [u'track'], u'permanent': [u'permanent']}}
+  __choices__ = {u'track-or-perm': {u'track': [u'track'], u'permanent': [u'permanent']}}
   _pyangbind_elements = {'fwd': fwd, 'forwarding_router_adr': forwarding_router_adr, 'metric': metric, 'name': name, 'tag': tag, 'track': track, 'permanent': permanent, }
 
 

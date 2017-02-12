@@ -1,6 +1,6 @@
 module cisco-route-static {
  namespace "http://cisco.com/ns/yang/ned/ios";
- prefix ios;
+ prefix ned;
 
  import ietf-yang-types {
    prefix "yang";
@@ -11,7 +11,7 @@ module cisco-route-static {
 }
 
  organization "NETWORKOP";
- contact "@@network_op";
+ contact "@network_op";
  description "IOS XE native static IP route model";
  revision 2017-02-10 {
    description "Initial revision";
@@ -25,13 +25,6 @@ module cisco-route-static {
     }
   }
 
-  grouping track-or-perm {
-    choice route-type {
-      leaf track { type uint8; }
-      leaf permanent { type empty; }
-    }
-  }
-
   grouping next-hop-list {
     list fwd-list {
       key "fwd";
@@ -41,7 +34,10 @@ module cisco-route-static {
       leaf metric { type uint8; }
       leaf name { type string; }
       leaf tag { type uint8; }
-      uses track-or-perm;
+      choice track-or-perm {
+        leaf track { type uint8; }
+        leaf permanent { type empty; }
+      }
     }
   }
 

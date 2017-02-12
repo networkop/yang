@@ -6,44 +6,9 @@
                 "prefix": "2.2.2.2", 
                 "fwd-list": [
                     {
-                        "fwd": "GigabitEthernet2"
-                    }
-                ]
-            }, 
-            {
-                "mask": "255.255.255.0", 
-                "prefix": "4.4.4.0", 
-                "fwd-list": [
-                    {
-                        "fwd": "12.12.12.2", 
-                        "name": "TER"
-                    }
-                ]
-            }, 
-            {
-                "mask": "255.255.255.255", 
-                "prefix": "1.1.1.1", 
-                "fwd-list": [
-                    {
                         "fwd": "12.12.12.2"
                     }
                 ]
-            }
-        ], 
-        "vrf": [
-            {
-                "ip-route-interface-forwarding-list": [
-                    {
-                        "mask": "255.255.255.255", 
-                        "prefix": "1.1.1.1", 
-                        "fwd-list": [
-                            {
-                                "fwd": "Null0"
-                            }
-                        ]
-                    }
-                ], 
-                "name": "asd"
             }
         ]
     }

@@ -1,0 +1,1010 @@
+module: ned
+   +--rw native
+      +--rw router
+         +--rw ospf* [id]
+            +--rw id                       uint16
+            +--rw vrf?                     string
+            +--rw address-family
+            |  +--rw ipv4_1
+            |  |  +--rw ipv4
+            |  |     +--rw snmp
+            |  |     |  +--rw context* [name]
+            |  |     |     +--rw name         string
+            |  |     |     +--rw community
+            |  |     |     |  +--rw community-string?   string
+            |  |     |     |  +--rw access
+            |  |     |     |     +--rw standard-acl?   uint32
+            |  |     |     |     +--rw expanded-acl?   uint32
+            |  |     |     |     +--rw acl-name?       string
+            |  |     |     |     +--rw ipv6?           string
+            |  |     |     |     +--rw ro?             empty
+            |  |     |     |     +--rw rw?             empty
+            |  |     |     +--rw user
+            |  |     |        +--rw name?          string
+            |  |     |        +--rw permisssion
+            |  |     |           +--rw access
+            |  |     |           |  +--rw standard-acl?   uint32
+            |  |     |           |  +--rw acl-name?       string
+            |  |     |           |  +--rw ipv6?           string
+            |  |     |           +--rw auth
+            |  |     |           |  +--rw md5?   string
+            |  |     |           |  +--rw sha?   string
+            |  |     |           +--rw credential?   empty
+            |  |     |           +--rw encrypted?    empty
+            |  |     +--rw topology
+            |  |        +--rw name?   string
+            |  |        +--rw tid?    uint32
+            |  +--rw ipv4
+            |     +--rw unicast
+            |     |  +--rw snmp
+            |     |  |  +--rw context* [name]
+            |     |  |     +--rw name         string
+            |     |  |     +--rw community
+            |     |  |     |  +--rw community-string?   string
+            |     |  |     |  +--rw access
+            |     |  |     |     +--rw standard-acl?   uint32
+            |     |  |     |     +--rw expanded-acl?   uint32
+            |     |  |     |     +--rw acl-name?       string
+            |     |  |     |     +--rw ipv6?           string
+            |     |  |     |     +--rw ro?             empty
+            |     |  |     |     +--rw rw?             empty
+            |     |  |     +--rw user
+            |     |  |        +--rw name?          string
+            |     |  |        +--rw permisssion
+            |     |  |           +--rw access
+            |     |  |           |  +--rw standard-acl?   uint32
+            |     |  |           |  +--rw acl-name?       string
+            |     |  |           |  +--rw ipv6?           string
+            |     |  |           +--rw auth
+            |     |  |           |  +--rw md5?   string
+            |     |  |           |  +--rw sha?   string
+            |     |  |           +--rw credential?   empty
+            |     |  |           +--rw encrypted?    empty
+            |     |  +--rw topology
+            |     |     +--rw name?   string
+            |     |     +--rw tid?    uint32
+            |     +--rw multicast
+            |        +--rw snmp
+            |        |  +--rw context* [name]
+            |        |     +--rw name         string
+            |        |     +--rw community
+            |        |     |  +--rw community-string?   string
+            |        |     |  +--rw access
+            |        |     |     +--rw standard-acl?   uint32
+            |        |     |     +--rw expanded-acl?   uint32
+            |        |     |     +--rw acl-name?       string
+            |        |     |     +--rw ipv6?           string
+            |        |     |     +--rw ro?             empty
+            |        |     |     +--rw rw?             empty
+            |        |     +--rw user
+            |        |        +--rw name?          string
+            |        |        +--rw permisssion
+            |        |           +--rw access
+            |        |           |  +--rw standard-acl?   uint32
+            |        |           |  +--rw acl-name?       string
+            |        |           |  +--rw ipv6?           string
+            |        |           +--rw auth
+            |        |           |  +--rw md5?   string
+            |        |           |  +--rw sha?   string
+            |        |           +--rw credential?   empty
+            |        |           +--rw encrypted?    empty
+            |        +--rw topology
+            |           +--rw name?   string
+            |           +--rw tid?    uint32
+            +--rw area* [id]
+            |  +--rw id                ospf-area-type
+            |  +--rw authentication!
+            |  |  +--rw message-digest?   empty
+            |  +--rw capability
+            |  |  +--rw default-exclusion?   empty
+            |  +--rw default-cost?     uint32
+            |  +--rw filter-list* [in-out]
+            |  |  +--rw in-out    enumeration
+            |  |  +--rw prefix    string
+            |  +--rw nssa!
+            |  |  +--rw default-information-originate!
+            |  |  |  +--rw metric?              int32
+            |  |  |  +--rw metric-type?         ospf-metric-type
+            |  |  |  +--rw no-ext-capability?   empty
+            |  |  |  +--rw no-redistribution?   empty
+            |  |  |  +--rw no-summary?          empty
+            |  |  |  +--rw nssa-only?           empty
+            |  |  |  +--rw translate
+            |  |  |     +--rw type7
+            |  |  |        +--rw always?        empty
+            |  |  |        +--rw suppress-fa?   empty
+            |  |  +--rw no-ext-capability?               empty
+            |  |  +--rw no-redistribution?               empty
+            |  |  +--rw no-summary?                      empty
+            |  |  +--rw nssa-only?                       empty
+            |  |  +--rw translate
+            |  |     +--rw type7
+            |  |        +--rw always?        empty
+            |  |        +--rw suppress-fa?   empty
+            |  +--rw range* [ip mask]
+            |  |  +--rw ip               inet:ipv4-address
+            |  |  +--rw mask             inet:ipv4-address
+            |  |  +--rw (advertise-choice)?
+            |  |  |  +--:(advertise)
+            |  |  |  |  +--rw advertise?       empty
+            |  |  |  +--:(not-advertise)
+            |  |  |     +--rw not-advertise?   empty
+            |  |  +--rw cost?            uint32
+            |  +--rw sham-link* [source dest]
+            |  |  +--rw source          inet:ip-address
+            |  |  +--rw dest            inet:ip-address
+            |  |  +--rw cost?           uint16
+            |  |  +--rw ttl-security
+            |  |     +--rw hops?   uint8
+            |  +--rw stub!
+            |  |  +--rw no-ext-capability?   empty
+            |  |  +--rw no-summary?          empty
+            |  +--rw virtual-link* [id]
+            |     +--rw id                     inet:ip-address
+            |     +--rw authentication
+            |     |  +--rw authentication-key
+            |     |  |  +--rw auth-type?   uint8
+            |     |  |  +--rw auth-key?    string
+            |     |  +--rw message-digest-key* [id]
+            |     |  |  +--rw id     uint8
+            |     |  |  +--rw md5
+            |     |  |     +--rw auth-type?   uint8
+            |     |  |     +--rw auth-key?    string
+            |     |  +--rw key-chain
+            |     |  |  +--rw name?                 string
+            |     |  |  +--rw authentication-key
+            |     |  |  |  +--rw auth-type?   uint8
+            |     |  |  |  +--rw auth-key?    string
+            |     |  |  +--rw message-digest-key* [id]
+            |     |  |     +--rw id     uint8
+            |     |  |     +--rw md5
+            |     |  |        +--rw auth-type?   uint8
+            |     |  |        +--rw auth-key?    string
+            |     |  +--rw message-digest
+            |     |  |  +--rw authentication-key
+            |     |  |  |  +--rw auth-type?   uint8
+            |     |  |  |  +--rw auth-key?    string
+            |     |  |  +--rw message-digest-key* [id]
+            |     |  |     +--rw id     uint8
+            |     |  |     +--rw md5
+            |     |  |        +--rw auth-type?   uint8
+            |     |  |        +--rw auth-key?    string
+            |     |  +--rw null?                 empty
+            |     +--rw hello-interval
+            |     |  +--rw hello-interval-value?   int32
+            |     +--rw dead-interval
+            |     |  +--rw dead-interval-value?   uint16
+            |     +--rw retransmit-interval
+            |     |  +--rw retransmit-interval-value?   uint16
+            |     +--rw transmit-delay
+            |     |  +--rw transmit-delay-value?   uint16
+            |     +--rw topology
+            |     |  +--rw disable?   empty
+            |     +--rw ttl-security
+            |     |  +--rw hops?   uint8
+            |     +--rw authentication-key
+            |     |  +--rw auth-type?   uint8
+            |     |  +--rw auth-key?    string
+            |     +--rw message-digest-key* [id]
+            |        +--rw id     uint8
+            |        +--rw md5
+            |           +--rw auth-type?   uint8
+            |           +--rw auth-key?    string
+            +--rw auto-cost!
+            |  +--rw reference-bandwidth?   uint32
+            +--rw event-log!
+            |  +--rw one-shot?   empty
+            |  +--rw pause?      empty
+            |  +--rw size?       uint32
+            +--rw bfd
+            |  +--rw all-interfaces?   empty
+            +--rw interface-id
+            |  +--rw snmp-if-index?   empty
+            +--rw log-adjacency-changes!
+            |  +--rw detail?   empty
+            +--rw max-lsa
+            |  +--rw number?            uint32
+            |  +--rw threshold-value?   uint32
+            |  +--rw ignore-count?      uint32
+            |  +--rw ignore-time?       uint32
+            |  +--rw reset-time?        uint32
+            |  +--rw warning-only?      empty
+            +--rw max-metric
+            |  +--rw router-lsa!
+            |     +--rw external-lsa!
+            |     |  +--rw metric?   uint32
+            |     +--rw include-stub?   empty
+            |     +--rw on-startup!
+            |     |  +--rw (time-wait-for-bgp-choice)?
+            |     |     +--:(time)
+            |     |     |  +--rw time?           uint32
+            |     |     +--:(wait-for-bgp)
+            |     |        +--rw wait-for-bgp?   empty
+            |     +--rw summary-lsa!
+            |        +--rw metric?   uint32
+            +--rw passive-interface
+            |  +--rw (passive-interface-choice)?
+            |     +--:(default)
+            |     |  +--rw default?     empty
+            |     +--:(interface)
+            |        +--rw interface?   string
+            +--rw disable
+            |  +--rw passive-interface* [interface]
+            |     +--rw interface    string
+            +--rw queue-depth
+            |  +--rw hello
+            |  |  +--rw options?   union
+            |  +--rw update
+            |     +--rw options?   union
+            +--rw timers
+            |  +--rw lsa
+            |  |  +--rw arrival?   uint32
+            |  +--rw pacing
+            |  |  +--rw flood?            uint32
+            |  |  +--rw lsa-group?        uint32
+            |  |  +--rw retransmission?   uint32
+            |  +--rw throttle
+            |     +--rw lsa
+            |     |  +--rw all
+            |     |     +--rw delay?       uint32
+            |     |     +--rw min-delay?   uint32
+            |     |     +--rw max-delay?   uint32
+            |     +--rw spf
+            |        +--rw delay?       uint32
+            |        +--rw min-delay?   uint32
+            |        +--rw max-delay?   uint32
+            +--rw router-id?               inet:ipv4-address
+            +--rw nsr?                     empty
+            +--rw traffic-share
+            |  +--rw min?                 empty
+            |  +--rw across-interfaces?   empty
+            +--rw ttl-security
+            |  +--rw all-interfaces?   empty
+            |  +--rw hops?             uint8
+            +--rw capability
+            |  +--rw capability-type?   enumeration
+            +--rw compatible
+            |  +--rw rfc1583?   empty
+            |  +--rw rfc1587?   empty
+            |  +--rw rfc5243?   empty
+            +--rw default-information
+            |  +--rw originate!
+            |     +--rw always?        empty
+            |     +--rw metric?        uint32
+            |     +--rw metric-type?   ospf-metric-type
+            |     +--rw route-map?     string
+            +--rw default-metric?          uint32
+            +--rw discard-route!
+            |  +--rw external?   empty
+            |  +--rw internal?   empty
+            |  +--rw metric?     uint32
+            +--rw distance
+            |  +--rw ospf-distance
+            |  |  +--rw distance?   uint32
+            |  |  +--rw ip?         inet:ipv4-address
+            |  |  +--rw wildcard?   inet:ipv4-address
+            |  |  +--rw acl-name?   access-list-standard-id-type
+            |  +--rw ospf
+            |     +--rw external?     uint32
+            |     +--rw inter-area?   uint32
+            |     +--rw intra-area?   uint32
+            +--rw maximum-paths?           uint32
+            +--rw redistribute
+            |  +--rw application* [name]
+            |  |  +--rw name              string
+            |  |  +--rw redist-options
+            |  |     +--rw metric?        uint32
+            |  |     +--rw metric-type?   enumeration
+            |  |     +--rw tag?           uint32
+            |  |     +--rw subnets?       empty
+            |  |     +--rw route-map?     string
+            |  |     +--rw nssa-only?     empty
+            |  +--rw bgp* [as-number]
+            |  |  +--rw as-number         bgp-as-number-type
+            |  |  +--rw redist-options
+            |  |     +--rw metric?        uint32
+            |  |     +--rw metric-type?   enumeration
+            |  |     +--rw tag?           uint32
+            |  |     +--rw subnets?       empty
+            |  |     +--rw route-map?     string
+            |  |     +--rw nssa-only?     empty
+            |  +--rw connected!
+            |  |  +--rw redist-options
+            |  |     +--rw metric?        uint32
+            |  |     +--rw metric-type?   enumeration
+            |  |     +--rw tag?           uint32
+            |  |     +--rw subnets?       empty
+            |  |     +--rw route-map?     string
+            |  |     +--rw nssa-only?     empty
+            |  +--rw eigrp* [as-number]
+            |  |  +--rw as-number         bgp-as-number-type
+            |  |  +--rw redist-options
+            |  |     +--rw metric?        uint32
+            |  |     +--rw metric-type?   enumeration
+            |  |     +--rw tag?           uint32
+            |  |     +--rw subnets?       empty
+            |  |     +--rw route-map?     string
+            |  |     +--rw nssa-only?     empty
+            |  +--rw isis!
+            |  |  +--rw (isis-level-routes-isis-area-choice)?
+            |  |  |  +--:(isis-level-routes)
+            |  |  |  |  +--rw isis-level-routes?   enumeration
+            |  |  |  +--:(isis-area)
+            |  |  |     +--rw isis-area* [name]
+            |  |  |        +--rw name                 string
+            |  |  |        +--rw isis-level-routes?   enumeration
+            |  |  |        +--rw redist-options
+            |  |  |           +--rw metric?        uint32
+            |  |  |           +--rw metric-type?   enumeration
+            |  |  |           +--rw tag?           uint32
+            |  |  |           +--rw subnets?       empty
+            |  |  |           +--rw route-map?     string
+            |  |  |           +--rw nssa-only?     empty
+            |  |  +--rw redist-options
+            |  |     +--rw metric?        uint32
+            |  |     +--rw metric-type?   enumeration
+            |  |     +--rw tag?           uint32
+            |  |     +--rw subnets?       empty
+            |  |     +--rw route-map?     string
+            |  |     +--rw nssa-only?     empty
+            |  +--rw iso-igrp!
+            |  |  +--rw (area-tag-route-map-choice)?
+            |  |  |  +--:(area-tag-route-map-container)
+            |  |  |  |  +--rw area-tag-route-map-container
+            |  |  |  |     +--rw area-tag?    string
+            |  |  |  |     +--rw route-map?   string
+            |  |  |  +--:(route-map)
+            |  |  |     +--rw route-map?                      string
+            |  |  +--rw iso-igrp-container
+            |  |     +--rw metric?        uint32
+            |  |     +--rw metric-type?   enumeration
+            |  |     +--rw tag?           uint32
+            |  |     +--rw subnets?       empty
+            |  +--rw lisp
+            |  |  +--rw redist-options
+            |  |     +--rw metric?        uint32
+            |  |     +--rw metric-type?   enumeration
+            |  |     +--rw tag?           uint32
+            |  |     +--rw subnets?       empty
+            |  |     +--rw route-map?     string
+            |  |     +--rw nssa-only?     empty
+            |  +--rw mobile!
+            |  |  +--rw redist-options
+            |  |     +--rw metric?        uint32
+            |  |     +--rw metric-type?   enumeration
+            |  |     +--rw tag?           uint32
+            |  |     +--rw subnets?       empty
+            |  |     +--rw route-map?     string
+            |  |     +--rw nssa-only?     empty
+            |  +--rw odr!
+            |  |  +--rw redist-options
+            |  |     +--rw metric?        uint32
+            |  |     +--rw metric-type?   enumeration
+            |  |     +--rw tag?           uint32
+            |  |     +--rw subnets?       empty
+            |  |     +--rw route-map?     string
+            |  |     +--rw nssa-only?     empty
+            |  +--rw ospf* [id]
+            |  |  +--rw id             uint32
+            |  |  +--rw match
+            |  |  |  +--rw internal!
+            |  |  |  |  +--rw metric?        uint32
+            |  |  |  |  +--rw metric-type?   enumeration
+            |  |  |  |  +--rw nssa-only?     empty
+            |  |  |  |  +--rw subnets?       empty
+            |  |  |  |  +--rw route-map?     string
+            |  |  |  |  +--rw tag?           uint32
+            |  |  |  +--rw external!
+            |  |  |  |  +--rw external-routes?   redist-ospf-external-type
+            |  |  |  |  +--rw metric?            uint32
+            |  |  |  |  +--rw metric-type?       enumeration
+            |  |  |  |  +--rw nssa-only?         empty
+            |  |  |  |  +--rw subnets?           empty
+            |  |  |  |  +--rw route-map?         string
+            |  |  |  |  +--rw tag?               uint32
+            |  |  |  +--rw nssa-external!
+            |  |  |     +--rw nssa-external-routes?   redist-ospf-external-type
+            |  |  |     +--rw metric?                 uint32
+            |  |  |     +--rw metric-type?            enumeration
+            |  |  |     +--rw nssa-only?              empty
+            |  |  |     +--rw subnets?                empty
+            |  |  |     +--rw route-map?              string
+            |  |  |     +--rw tag?                    uint32
+            |  |  +--rw metric?        uint32
+            |  |  +--rw metric-type?   enumeration
+            |  |  +--rw nssa-only?     empty
+            |  |  +--rw subnets?       empty
+            |  |  +--rw route-map?     string
+            |  |  +--rw tag?           uint32
+            |  |  +--rw vrf?           string
+            |  +--rw ospfv3* [id]
+            |  |  +--rw id             uint32
+            |  |  +--rw match
+            |  |  |  +--rw internal!
+            |  |  |  |  +--rw metric?        uint32
+            |  |  |  |  +--rw metric-type?   enumeration
+            |  |  |  |  +--rw nssa-only?     empty
+            |  |  |  |  +--rw subnets?       empty
+            |  |  |  |  +--rw route-map?     string
+            |  |  |  |  +--rw tag?           uint32
+            |  |  |  +--rw external!
+            |  |  |  |  +--rw external-routes?   redist-ospf-external-type
+            |  |  |  |  +--rw metric?            uint32
+            |  |  |  |  +--rw metric-type?       enumeration
+            |  |  |  |  +--rw nssa-only?         empty
+            |  |  |  |  +--rw subnets?           empty
+            |  |  |  |  +--rw route-map?         string
+            |  |  |  |  +--rw tag?               uint32
+            |  |  |  +--rw nssa-external!
+            |  |  |     +--rw nssa-external-routes?   redist-ospf-external-type
+            |  |  |     +--rw metric?                 uint32
+            |  |  |     +--rw metric-type?            enumeration
+            |  |  |     +--rw nssa-only?              empty
+            |  |  |     +--rw subnets?                empty
+            |  |  |     +--rw route-map?              string
+            |  |  |     +--rw tag?                    uint32
+            |  |  +--rw metric?        uint32
+            |  |  +--rw metric-type?   enumeration
+            |  |  +--rw nssa-only?     empty
+            |  |  +--rw subnets?       empty
+            |  |  +--rw route-map?     string
+            |  |  +--rw tag?           uint32
+            |  +--rw rip* [id]
+            |  |  +--rw id                string
+            |  |  +--rw redist-options
+            |  |     +--rw metric?        uint32
+            |  |     +--rw metric-type?   enumeration
+            |  |     +--rw tag?           uint32
+            |  |     +--rw subnets?       empty
+            |  |     +--rw route-map?     string
+            |  |     +--rw nssa-only?     empty
+            |  +--rw static!
+            |  |  +--rw redist-options
+            |  |     +--rw metric?        uint32
+            |  |     +--rw metric-type?   enumeration
+            |  |     +--rw tag?           uint32
+            |  |     +--rw subnets?       empty
+            |  |     +--rw route-map?     string
+            |  |     +--rw nssa-only?     empty
+            |  +--rw maximum-prefix
+            |  |  +--rw number?                             uint32
+            |  |  +--rw threshold-warning-only-container
+            |  |     +--rw threshold?      uint32
+            |  |     +--rw warning-only?   empty
+            |  +--rw vrf
+            |     +--rw non-global-vrf* [name]
+            |     |  +--rw name           string
+            |     |  +--rw application* [name]
+            |     |  |  +--rw name              string
+            |     |  |  +--rw redist-options
+            |     |  |     +--rw metric?        uint32
+            |     |  |     +--rw metric-type?   enumeration
+            |     |  |     +--rw tag?           uint32
+            |     |  |     +--rw subnets?       empty
+            |     |  |     +--rw route-map?     string
+            |     |  |     +--rw nssa-only?     empty
+            |     |  +--rw bgp* [as-number]
+            |     |  |  +--rw as-number         bgp-as-number-type
+            |     |  |  +--rw redist-options
+            |     |  |     +--rw metric?        uint32
+            |     |  |     +--rw metric-type?   enumeration
+            |     |  |     +--rw tag?           uint32
+            |     |  |     +--rw subnets?       empty
+            |     |  |     +--rw route-map?     string
+            |     |  |     +--rw nssa-only?     empty
+            |     |  +--rw connected!
+            |     |  |  +--rw redist-options
+            |     |  |     +--rw metric?        uint32
+            |     |  |     +--rw metric-type?   enumeration
+            |     |  |     +--rw tag?           uint32
+            |     |  |     +--rw subnets?       empty
+            |     |  |     +--rw route-map?     string
+            |     |  |     +--rw nssa-only?     empty
+            |     |  +--rw eigrp* [as-number]
+            |     |  |  +--rw as-number         bgp-as-number-type
+            |     |  |  +--rw redist-options
+            |     |  |     +--rw metric?        uint32
+            |     |  |     +--rw metric-type?   enumeration
+            |     |  |     +--rw tag?           uint32
+            |     |  |     +--rw subnets?       empty
+            |     |  |     +--rw route-map?     string
+            |     |  |     +--rw nssa-only?     empty
+            |     |  +--rw isis!
+            |     |  |  +--rw (isis-level-routes-isis-area-choice)?
+            |     |  |  |  +--:(isis-level-routes)
+            |     |  |  |  |  +--rw isis-level-routes?   enumeration
+            |     |  |  |  +--:(isis-area)
+            |     |  |  |     +--rw isis-area* [name]
+            |     |  |  |        +--rw name                 string
+            |     |  |  |        +--rw isis-level-routes?   enumeration
+            |     |  |  |        +--rw redist-options
+            |     |  |  |           +--rw metric?        uint32
+            |     |  |  |           +--rw metric-type?   enumeration
+            |     |  |  |           +--rw tag?           uint32
+            |     |  |  |           +--rw subnets?       empty
+            |     |  |  |           +--rw route-map?     string
+            |     |  |  |           +--rw nssa-only?     empty
+            |     |  |  +--rw redist-options
+            |     |  |     +--rw metric?        uint32
+            |     |  |     +--rw metric-type?   enumeration
+            |     |  |     +--rw tag?           uint32
+            |     |  |     +--rw subnets?       empty
+            |     |  |     +--rw route-map?     string
+            |     |  |     +--rw nssa-only?     empty
+            |     |  +--rw iso-igrp!
+            |     |  |  +--rw (area-tag-route-map-choice)?
+            |     |  |  |  +--:(area-tag-route-map-container)
+            |     |  |  |  |  +--rw area-tag-route-map-container
+            |     |  |  |  |     +--rw area-tag?    string
+            |     |  |  |  |     +--rw route-map?   string
+            |     |  |  |  +--:(route-map)
+            |     |  |  |     +--rw route-map?                      string
+            |     |  |  +--rw iso-igrp-container
+            |     |  |     +--rw metric?        uint32
+            |     |  |     +--rw metric-type?   enumeration
+            |     |  |     +--rw tag?           uint32
+            |     |  |     +--rw subnets?       empty
+            |     |  +--rw lisp
+            |     |  |  +--rw redist-options
+            |     |  |     +--rw metric?        uint32
+            |     |  |     +--rw metric-type?   enumeration
+            |     |  |     +--rw tag?           uint32
+            |     |  |     +--rw subnets?       empty
+            |     |  |     +--rw route-map?     string
+            |     |  |     +--rw nssa-only?     empty
+            |     |  +--rw mobile!
+            |     |  |  +--rw redist-options
+            |     |  |     +--rw metric?        uint32
+            |     |  |     +--rw metric-type?   enumeration
+            |     |  |     +--rw tag?           uint32
+            |     |  |     +--rw subnets?       empty
+            |     |  |     +--rw route-map?     string
+            |     |  |     +--rw nssa-only?     empty
+            |     |  +--rw odr!
+            |     |  |  +--rw redist-options
+            |     |  |     +--rw metric?        uint32
+            |     |  |     +--rw metric-type?   enumeration
+            |     |  |     +--rw tag?           uint32
+            |     |  |     +--rw subnets?       empty
+            |     |  |     +--rw route-map?     string
+            |     |  |     +--rw nssa-only?     empty
+            |     |  +--rw ospf* [id]
+            |     |  |  +--rw id             uint32
+            |     |  |  +--rw match
+            |     |  |  |  +--rw internal!
+            |     |  |  |  |  +--rw metric?        uint32
+            |     |  |  |  |  +--rw metric-type?   enumeration
+            |     |  |  |  |  +--rw nssa-only?     empty
+            |     |  |  |  |  +--rw subnets?       empty
+            |     |  |  |  |  +--rw route-map?     string
+            |     |  |  |  |  +--rw tag?           uint32
+            |     |  |  |  +--rw external!
+            |     |  |  |  |  +--rw external-routes?   redist-ospf-external-type
+            |     |  |  |  |  +--rw metric?            uint32
+            |     |  |  |  |  +--rw metric-type?       enumeration
+            |     |  |  |  |  +--rw nssa-only?         empty
+            |     |  |  |  |  +--rw subnets?           empty
+            |     |  |  |  |  +--rw route-map?         string
+            |     |  |  |  |  +--rw tag?               uint32
+            |     |  |  |  +--rw nssa-external!
+            |     |  |  |     +--rw nssa-external-routes?   redist-ospf-external-type
+            |     |  |  |     +--rw metric?                 uint32
+            |     |  |  |     +--rw metric-type?            enumeration
+            |     |  |  |     +--rw nssa-only?              empty
+            |     |  |  |     +--rw subnets?                empty
+            |     |  |  |     +--rw route-map?              string
+            |     |  |  |     +--rw tag?                    uint32
+            |     |  |  +--rw metric?        uint32
+            |     |  |  +--rw metric-type?   enumeration
+            |     |  |  +--rw nssa-only?     empty
+            |     |  |  +--rw subnets?       empty
+            |     |  |  +--rw route-map?     string
+            |     |  |  +--rw tag?           uint32
+            |     |  |  +--rw vrf?           string
+            |     |  +--rw ospfv3* [id]
+            |     |  |  +--rw id             uint32
+            |     |  |  +--rw match
+            |     |  |  |  +--rw internal!
+            |     |  |  |  |  +--rw metric?        uint32
+            |     |  |  |  |  +--rw metric-type?   enumeration
+            |     |  |  |  |  +--rw nssa-only?     empty
+            |     |  |  |  |  +--rw subnets?       empty
+            |     |  |  |  |  +--rw route-map?     string
+            |     |  |  |  |  +--rw tag?           uint32
+            |     |  |  |  +--rw external!
+            |     |  |  |  |  +--rw external-routes?   redist-ospf-external-type
+            |     |  |  |  |  +--rw metric?            uint32
+            |     |  |  |  |  +--rw metric-type?       enumeration
+            |     |  |  |  |  +--rw nssa-only?         empty
+            |     |  |  |  |  +--rw subnets?           empty
+            |     |  |  |  |  +--rw route-map?         string
+            |     |  |  |  |  +--rw tag?               uint32
+            |     |  |  |  +--rw nssa-external!
+            |     |  |  |     +--rw nssa-external-routes?   redist-ospf-external-type
+            |     |  |  |     +--rw metric?                 uint32
+            |     |  |  |     +--rw metric-type?            enumeration
+            |     |  |  |     +--rw nssa-only?              empty
+            |     |  |  |     +--rw subnets?                empty
+            |     |  |  |     +--rw route-map?              string
+            |     |  |  |     +--rw tag?                    uint32
+            |     |  |  +--rw metric?        uint32
+            |     |  |  +--rw metric-type?   enumeration
+            |     |  |  +--rw nssa-only?     empty
+            |     |  |  +--rw subnets?       empty
+            |     |  |  +--rw route-map?     string
+            |     |  |  +--rw tag?           uint32
+            |     |  +--rw rip* [id]
+            |     |  |  +--rw id                string
+            |     |  |  +--rw redist-options
+            |     |  |     +--rw metric?        uint32
+            |     |  |     +--rw metric-type?   enumeration
+            |     |  |     +--rw tag?           uint32
+            |     |  |     +--rw subnets?       empty
+            |     |  |     +--rw route-map?     string
+            |     |  |     +--rw nssa-only?     empty
+            |     |  +--rw static!
+            |     |     +--rw redist-options
+            |     |        +--rw metric?        uint32
+            |     |        +--rw metric-type?   enumeration
+            |     |        +--rw tag?           uint32
+            |     |        +--rw subnets?       empty
+            |     |        +--rw route-map?     string
+            |     |        +--rw nssa-only?     empty
+            |     +--rw global
+            |        +--rw application* [name]
+            |        |  +--rw name              string
+            |        |  +--rw redist-options
+            |        |     +--rw metric?        uint32
+            |        |     +--rw metric-type?   enumeration
+            |        |     +--rw tag?           uint32
+            |        |     +--rw subnets?       empty
+            |        |     +--rw route-map?     string
+            |        |     +--rw nssa-only?     empty
+            |        +--rw bgp* [as-number]
+            |        |  +--rw as-number         bgp-as-number-type
+            |        |  +--rw redist-options
+            |        |     +--rw metric?        uint32
+            |        |     +--rw metric-type?   enumeration
+            |        |     +--rw tag?           uint32
+            |        |     +--rw subnets?       empty
+            |        |     +--rw route-map?     string
+            |        |     +--rw nssa-only?     empty
+            |        +--rw connected!
+            |        |  +--rw redist-options
+            |        |     +--rw metric?        uint32
+            |        |     +--rw metric-type?   enumeration
+            |        |     +--rw tag?           uint32
+            |        |     +--rw subnets?       empty
+            |        |     +--rw route-map?     string
+            |        |     +--rw nssa-only?     empty
+            |        +--rw eigrp* [as-number]
+            |        |  +--rw as-number         bgp-as-number-type
+            |        |  +--rw redist-options
+            |        |     +--rw metric?        uint32
+            |        |     +--rw metric-type?   enumeration
+            |        |     +--rw tag?           uint32
+            |        |     +--rw subnets?       empty
+            |        |     +--rw route-map?     string
+            |        |     +--rw nssa-only?     empty
+            |        +--rw isis!
+            |        |  +--rw (isis-level-routes-isis-area-choice)?
+            |        |  |  +--:(isis-level-routes)
+            |        |  |  |  +--rw isis-level-routes?   enumeration
+            |        |  |  +--:(isis-area)
+            |        |  |     +--rw isis-area* [name]
+            |        |  |        +--rw name                 string
+            |        |  |        +--rw isis-level-routes?   enumeration
+            |        |  |        +--rw redist-options
+            |        |  |           +--rw metric?        uint32
+            |        |  |           +--rw metric-type?   enumeration
+            |        |  |           +--rw tag?           uint32
+            |        |  |           +--rw subnets?       empty
+            |        |  |           +--rw route-map?     string
+            |        |  |           +--rw nssa-only?     empty
+            |        |  +--rw redist-options
+            |        |     +--rw metric?        uint32
+            |        |     +--rw metric-type?   enumeration
+            |        |     +--rw tag?           uint32
+            |        |     +--rw subnets?       empty
+            |        |     +--rw route-map?     string
+            |        |     +--rw nssa-only?     empty
+            |        +--rw iso-igrp!
+            |        |  +--rw (area-tag-route-map-choice)?
+            |        |  |  +--:(area-tag-route-map-container)
+            |        |  |  |  +--rw area-tag-route-map-container
+            |        |  |  |     +--rw area-tag?    string
+            |        |  |  |     +--rw route-map?   string
+            |        |  |  +--:(route-map)
+            |        |  |     +--rw route-map?                      string
+            |        |  +--rw iso-igrp-container
+            |        |     +--rw metric?        uint32
+            |        |     +--rw metric-type?   enumeration
+            |        |     +--rw tag?           uint32
+            |        |     +--rw subnets?       empty
+            |        +--rw lisp
+            |        |  +--rw redist-options
+            |        |     +--rw metric?        uint32
+            |        |     +--rw metric-type?   enumeration
+            |        |     +--rw tag?           uint32
+            |        |     +--rw subnets?       empty
+            |        |     +--rw route-map?     string
+            |        |     +--rw nssa-only?     empty
+            |        +--rw mobile!
+            |        |  +--rw redist-options
+            |        |     +--rw metric?        uint32
+            |        |     +--rw metric-type?   enumeration
+            |        |     +--rw tag?           uint32
+            |        |     +--rw subnets?       empty
+            |        |     +--rw route-map?     string
+            |        |     +--rw nssa-only?     empty
+            |        +--rw odr!
+            |        |  +--rw redist-options
+            |        |     +--rw metric?        uint32
+            |        |     +--rw metric-type?   enumeration
+            |        |     +--rw tag?           uint32
+            |        |     +--rw subnets?       empty
+            |        |     +--rw route-map?     string
+            |        |     +--rw nssa-only?     empty
+            |        +--rw ospf* [id]
+            |        |  +--rw id             uint32
+            |        |  +--rw match
+            |        |  |  +--rw internal!
+            |        |  |  |  +--rw metric?        uint32
+            |        |  |  |  +--rw metric-type?   enumeration
+            |        |  |  |  +--rw nssa-only?     empty
+            |        |  |  |  +--rw subnets?       empty
+            |        |  |  |  +--rw route-map?     string
+            |        |  |  |  +--rw tag?           uint32
+            |        |  |  +--rw external!
+            |        |  |  |  +--rw external-routes?   redist-ospf-external-type
+            |        |  |  |  +--rw metric?            uint32
+            |        |  |  |  +--rw metric-type?       enumeration
+            |        |  |  |  +--rw nssa-only?         empty
+            |        |  |  |  +--rw subnets?           empty
+            |        |  |  |  +--rw route-map?         string
+            |        |  |  |  +--rw tag?               uint32
+            |        |  |  +--rw nssa-external!
+            |        |  |     +--rw nssa-external-routes?   redist-ospf-external-type
+            |        |  |     +--rw metric?                 uint32
+            |        |  |     +--rw metric-type?            enumeration
+            |        |  |     +--rw nssa-only?              empty
+            |        |  |     +--rw subnets?                empty
+            |        |  |     +--rw route-map?              string
+            |        |  |     +--rw tag?                    uint32
+            |        |  +--rw metric?        uint32
+            |        |  +--rw metric-type?   enumeration
+            |        |  +--rw nssa-only?     empty
+            |        |  +--rw subnets?       empty
+            |        |  +--rw route-map?     string
+            |        |  +--rw tag?           uint32
+            |        |  +--rw vrf?           string
+            |        +--rw ospfv3* [id]
+            |        |  +--rw id             uint32
+            |        |  +--rw match
+            |        |  |  +--rw internal!
+            |        |  |  |  +--rw metric?        uint32
+            |        |  |  |  +--rw metric-type?   enumeration
+            |        |  |  |  +--rw nssa-only?     empty
+            |        |  |  |  +--rw subnets?       empty
+            |        |  |  |  +--rw route-map?     string
+            |        |  |  |  +--rw tag?           uint32
+            |        |  |  +--rw external!
+            |        |  |  |  +--rw external-routes?   redist-ospf-external-type
+            |        |  |  |  +--rw metric?            uint32
+            |        |  |  |  +--rw metric-type?       enumeration
+            |        |  |  |  +--rw nssa-only?         empty
+            |        |  |  |  +--rw subnets?           empty
+            |        |  |  |  +--rw route-map?         string
+            |        |  |  |  +--rw tag?               uint32
+            |        |  |  +--rw nssa-external!
+            |        |  |     +--rw nssa-external-routes?   redist-ospf-external-type
+            |        |  |     +--rw metric?                 uint32
+            |        |  |     +--rw metric-type?            enumeration
+            |        |  |     +--rw nssa-only?              empty
+            |        |  |     +--rw subnets?                empty
+            |        |  |     +--rw route-map?              string
+            |        |  |     +--rw tag?                    uint32
+            |        |  +--rw metric?        uint32
+            |        |  +--rw metric-type?   enumeration
+            |        |  +--rw nssa-only?     empty
+            |        |  +--rw subnets?       empty
+            |        |  +--rw route-map?     string
+            |        |  +--rw tag?           uint32
+            |        +--rw rip* [id]
+            |        |  +--rw id                string
+            |        |  +--rw redist-options
+            |        |     +--rw metric?        uint32
+            |        |     +--rw metric-type?   enumeration
+            |        |     +--rw tag?           uint32
+            |        |     +--rw subnets?       empty
+            |        |     +--rw route-map?     string
+            |        |     +--rw nssa-only?     empty
+            |        +--rw static!
+            |           +--rw redist-options
+            |              +--rw metric?        uint32
+            |              +--rw metric-type?   enumeration
+            |              +--rw tag?           uint32
+            |              +--rw subnets?       empty
+            |              +--rw route-map?     string
+            |              +--rw nssa-only?     empty
+            +--rw distribute-list
+            |  +--rw accesslist* [in-out]
+            |  |  +--rw in-out    access-list-in-out-type
+            |  |  +--rw id        access-list-id-type
+            |  +--rw accesslist-ifname* [in-out interface]
+            |  |  +--rw in-out                  access-list-in-out-type
+            |  |  +--rw interface               string
+            |  |  +--rw interface-routing-id?   uint8
+            |  |  +--rw isis-tag?               string
+            |  |  +--rw vrf?                    string
+            |  |  +--rw id                      access-list-id-type
+            |  +--rw accesslist-prefix-gateway* [in-out]
+            |  |  +--rw in-out            access-list-in-out-type
+            |  |  +--rw prefix-gateway    enumeration
+            |  |  +--rw name              string
+            |  +--rw accesslist-prefix-gateway-ifname* [in-out interface]
+            |     +--rw in-out                  access-list-in-out-type
+            |     +--rw interface               string
+            |     +--rw prefix-gateway          enumeration
+            |     +--rw name                    string
+            |     +--rw interface-routing-id?   uint8
+            |     +--rw isis-tag?               string
+            |     +--rw vrf?                    string
+            +--rw domain-id
+            |  +--rw (domain-id-choice)?
+            |     +--:(ip-format)
+            |     |  +--rw ip-format?             inet:ipv4-address
+            |     +--:(ip-format-secondary)
+            |     |  +--rw ip-format-secondary
+            |     |     +--rw ip?          inet:ipv4-address
+            |     |     +--rw secondary?   empty
+            |     +--:(Null)
+            |     |  +--rw Null?                  empty
+            |     +--:(type)
+            |        +--rw type
+            |           +--rw type-leaf?   enumeration
+            |           +--rw value?       string
+            +--rw domain-tag?              uint32
+            +--rw fast-reroute
+            |  +--rw keep-all-paths?   empty
+            |  +--rw per-prefix
+            |     +--rw enable
+            |     |  +--rw area?              ospf-area-type
+            |     |  +--rw prefix-priority?   enumeration
+            |     +--rw remote-lfa
+            |     |  +--rw area?           ospf-area-type
+            |     |  +--rw maximum-cost?   uint32
+            |     |  +--rw tunnel?         enumeration
+            |     +--rw tie-break
+            |        +--rw broadcast-interface-disjoint
+            |        |  +--rw required?   empty
+            |        |  +--rw index?      uint8
+            |        +--rw downstream
+            |        |  +--rw required?   empty
+            |        |  +--rw index?      uint8
+            |        +--rw linecard-disjoint
+            |        |  +--rw required?   empty
+            |        |  +--rw index?      uint8
+            |        +--rw lowest-metric
+            |        |  +--rw required?   empty
+            |        |  +--rw index?      uint8
+            |        +--rw node-protecting
+            |        |  +--rw required?   empty
+            |        |  +--rw index?      uint8
+            |        +--rw primary-path
+            |        |  +--rw required?   empty
+            |        |  +--rw index?      uint8
+            |        +--rw secondary-path
+            |        |  +--rw required?   empty
+            |        |  +--rw index?      uint8
+            |        +--rw srlg
+            |           +--rw required?   empty
+            |           +--rw index?      uint8
+            +--rw graceful-restart!
+            |  +--rw disable?            empty
+            |  +--rw helper!
+            |  |  +--rw disable?               empty
+            |  |  +--rw strict-lsa-checking?   empty
+            |  +--rw restart-interval?   uint16
+            +--rw ignore
+            |  +--rw lsa
+            |     +--rw mospf?   empty
+            +--rw ispf?                    empty
+            +--rw limit
+            |  +--rw retransmissions
+            |     +--rw non-dc?   limit-dc-non-dc-type
+            |     +--rw dc?       limit-dc-non-dc-type
+            +--rw local-rib-criteria
+            |  +--rw forwarding-address?   empty
+            |  +--rw inter-area-summary?   empty
+            |  +--rw nssa-translation?     empty
+            +--rw microloop
+            |  +--rw avoidance!
+            |     +--rw disable?            empty
+            |     +--rw protected?          empty
+            |     +--rw rib-update-delay?   uint32
+            +--rw mpls
+            |  +--rw ldp
+            |  |  +--rw autoconfig!
+            |  |  |  +--rw area?   ospf-area-type
+            |  |  +--rw sync!
+            |  +--rw traffic-eng
+            |     +--rw multicast-intact?       empty
+            |     +--rw area?                   ospf-area-type
+            |     +--rw autoroute-exclude
+            |     |  +--rw prefix-list?   string
+            |     +--rw interface
+            |     |  +--rw name?   string
+            |     |  +--rw id?     uint32
+            |     |  +--rw area?   uint32
+            |     +--rw mesh-group-container
+            |     |  +--rw mesh-group?   uint32
+            |     |  +--rw interface?    string
+            |     |  +--rw id?           uint32
+            |     |  +--rw area* [id]
+            |     |     +--rw id    ospf-area-type
+            |     +--rw router-id
+            |        +--rw interface?   string
+            |        +--rw id?          uint32
+            +--rw neighbor* [ip]
+            |  +--rw ip                 inet:ipv4-address
+            |  +--rw cost?              uint32
+            |  +--rw database-filter
+            |  |  +--rw all
+            |  |     +--rw out?   empty
+            |  +--rw poll-interval?     uint32
+            |  +--rw priority?          uint32
+            +--rw network* [ip mask]
+            |  +--rw ip      inet:ipv4-address
+            |  +--rw mask    inet:ipv4-address
+            |  +--rw area?   ospf-area-type
+            +--rw nsf!
+            |  +--rw cisco!
+            |  |  +--rw helper!
+            |  |     +--rw disable?   empty
+            |  +--rw ietf
+            |     +--rw helper!
+            |        +--rw disable?               empty
+            |        +--rw strict-lsa-checking?   empty
+            +--rw prefix-priority
+            |  +--rw high?        empty
+            |  +--rw route-map?   string
+            +--rw prefix-suppression?      empty
+            +--rw priority?                uint8
+            +--rw process-min-time
+            |  +--rw percent?   uint32
+            +--rw shutdown?                boolean
+            +--rw snmp
+            |  +--rw context* [name]
+            |     +--rw name         string
+            |     +--rw community
+            |     |  +--rw community-string?   string
+            |     |  +--rw access
+            |     |     +--rw standard-acl?   uint32
+            |     |     +--rw expanded-acl?   uint32
+            |     |     +--rw acl-name?       string
+            |     |     +--rw ipv6?           string
+            |     |     +--rw ro?             empty
+            |     |     +--rw rw?             empty
+            |     +--rw user
+            |        +--rw name?          string
+            |        +--rw permisssion
+            |           +--rw access
+            |           |  +--rw standard-acl?   uint32
+            |           |  +--rw acl-name?       string
+            |           |  +--rw ipv6?           string
+            |           +--rw auth
+            |           |  +--rw md5?   string
+            |           |  +--rw sha?   string
+            |           +--rw credential?   empty
+            |           +--rw encrypted?    empty
+            +--rw summary-address* [ip wildcard]
+               +--rw ip               inet:ipv4-address
+               +--rw wildcard         inet:ipv4-address
+               +--rw (tag-no-advertise-choice)?
+                  +--:(nssa-only)
+                  |  +--rw nssa-only?       empty
+                  +--:(tag)
+                  |  +--rw tag?             uint32
+                  +--:(not-advertise)
+                     +--rw not-advertise?   empty

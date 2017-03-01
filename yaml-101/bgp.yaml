@@ -1,0 +1,15 @@
+---
+router:
+  bgp:
+    - id: 100
+      bgp:
+        router-id: 1.1.1.1
+        fast_external_fallover: null
+        update_delay: 15
+      neighbor:
+        - id: 2.2.2.2
+          remote_as: 200
+        - id: 3.3.3.3
+          remote_as: 300
+      redistribute:
+        connected: {} 

@@ -1,0 +1,27 @@
+{  
+  "name":"ietf-ip-interface",
+  "version":"0.1.0",
+  "ydk_version":"0.5.0",
+  "Author":"networkop",
+  "Copyright":"Cisco",
+  "Description":"IETF Interface + IP model",
+  "models":{  
+    "git":[  
+      {  
+        "url":"https://github.com/YangModels/yang.git",
+        "commits":[  
+          {  
+            "file":[  
+              "standard/ietf/RFC/ietf-interfaces@2014-05-08.yang",
+              "standard/ietf/RFC/ietf-ip@2014-06-16.yang",
+              "standard/ietf/RFC/ietf-inet-types.yang",
+              "standard/ietf/RFC/ietf-yang-types.yang",
+              "vendor/cisco/xe/1631/ietf-ip-devs.yang",
+              "standard/ietf/RFC/iana-if-type.yang"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

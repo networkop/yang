@@ -17,11 +17,11 @@ cat ospf.yaml
 ./1_send_yaml.py ospf ospf.yaml
 ```
 
-### 5. Repeat steps [1 - 3] for other configuration elements (e.g. interface and BGP)
+### 5. Repeat steps [2 - 4] for other configuration elements (e.g. interface and BGP)
 ```bash
 ./1_send_yaml.py interface_native interface.yaml
 
-./1_send_yaml.py ospf ospf.yaml
+./1_send_yaml.py bgp bgp.yaml
 ```
 
 ---

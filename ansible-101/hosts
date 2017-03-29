@@ -1,0 +1,3 @@
+[routers]
+R1 ansible_ssh_host=192.168.145.51 password=admin
+R2 ansible_ssh_host=192.168.145.53 password=admin123

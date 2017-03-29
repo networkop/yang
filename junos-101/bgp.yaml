@@ -1,0 +1,21 @@
+---
+routing_options:
+  autonomous_system: 
+    as_number: '65222'
+policy_options:
+  policy_statement:
+    - name: CONNECTED->BGP
+      from_:
+        protocol:
+          - ? direct
+      then:
+        accept: empty
+protocols:
+  bgp:
+    group:
+      - name: YANG
+        export:
+          - CONNECTED->BGP
+        neighbor:
+          - name: 12.12.12.1
+            peer_as: '65111'

@@ -1,0 +1,9 @@
+---
+    address_families:
+      address_family:
+        - af_summary:
+            neighbors:
+              neighbor_state:
+                - id: 12.12.12.3
+                  state:
+                    ? established

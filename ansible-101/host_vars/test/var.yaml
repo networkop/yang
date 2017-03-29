@@ -1,0 +1,7 @@
+---
+data:
+  foo: bar
+  myset: !!set
+    ? a
+    ? b
+    ? c

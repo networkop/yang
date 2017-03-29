@@ -1,0 +1,5 @@
+---
+  interface:
+    - name: GigabitEthernet3
+      oper_status:
+        ? up

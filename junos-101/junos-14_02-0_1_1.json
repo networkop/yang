@@ -1,0 +1,23 @@
+{  
+  "name":"junos-14_04",
+  "version":"0.1.0",
+  "ydk_version":"0.5.0",
+  "author":"networkop",
+  "copyright":"Cisco",
+  "description":"Junos 14.02 Yang Model",
+  "models":{  
+    "git":[  
+      {  
+        "url":"https://github.com/Juniper/yang.git",
+        "commits":[  
+          {  
+            "commitid":"7f1e474845b30fdbc006d17f9b82603ff7543091",
+            "file":[  
+              "14.2/configuration.yang"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

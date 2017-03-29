@@ -1,0 +1,13 @@
+---
+verify:
+  interfaces-state:
+    interface:
+      - name: GigabitEthernet3
+        oper_status:
+          ? up
+      - name: Loopback0
+        oper_status:
+          ? up
+      - name: GigabitEthernet2
+        oper_status:
+          ? down

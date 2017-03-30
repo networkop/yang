@@ -1,0 +1,25 @@
+---
+- hosts: routers
+  gather_facts: false
+  connection: local
+
+  tasks:
+#    - name: print all variables
+#      debug: var=hostvars
+
+    - name: copy ydk_yaml library
+      copy:
+        src=./library/ydk_yaml.py
+        dest=/usr/lib/python2.7/site-packages/
+      run_once: true
+
+    - name: verify config
+      ydk_module:
+        username="{{ username }}"
+        password="{{ password }}"
+        model="{{ item.key }}"
+        data="{{ item.value }}"
+        hostname="{{ hostvars[inventory_hostname]['ansible_ssh_host'] }}"
+        action=verify
+      with_dict: "{{ verify }}"
+      when: verify is defined

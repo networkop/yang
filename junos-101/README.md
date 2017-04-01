@@ -63,4 +63,6 @@ oc-policy.yaml
 
 All workflows were tested on vMX 17.1R1.8
 
+OpenConfig needs to be installed as a separate package as described [here](https://www.juniper.net/documentation/en_US/junos/topics/task/installation/openconfig-installing.html)
+
 All defaults are setup in defaults.py configuration file

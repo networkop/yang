@@ -1,0 +1,24 @@
+---
+interface:
+  - name: ge-0/0/0
+    subinterfaces:
+      subinterface:
+        - index: 0
+          ipv4:
+            addresses:
+              address:
+                - ip: 12.12.12.2/24
+                  config:
+                    ip: 12.12.2.2
+                    prefix_length: 24
+  - name: lo0
+    subinterfaces:
+      subinterface:
+        - index: 0
+          ipv4:
+            addresses:
+              address:
+                - ip: 2.2.2.2/32
+                  config:
+                    ip: 2.2.2.2
+                    prefix_length: 32

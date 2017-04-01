@@ -23,14 +23,3 @@
         action=configure
       with_dict: "{{ config }}"
       when: config is defined
-
-    - name: verify config
-      ydk_module:
-        username="{{ username }}"
-        password="{{ password }}"
-        model="{{ item.key }}"
-        data="{{ item.value }}"
-        hostname="{{ hostvars[inventory_hostname]['ansible_ssh_host'] }}"
-        action=verify
-      with_dict: "{{ verify }}"
-      when: verify is defined

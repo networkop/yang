@@ -92,6 +92,15 @@ class YdkModel:
         elif self.model == 'junos':
             from ydk.models.junos_14_04.configuration import Configuration
             self.binding = Configuration()
+        elif self.model == 'openconfig-bgp':
+            from ydk.models.openconfig_bgp_policy import openconfig_bgp
+            self.binding = openconfig_bgp.Bgp()
+        elif self.model == 'openconfig-policy':
+            from ydk.models.openconfig_bgp_policy import openconfig_routing_policy
+            self.binding = openconfig_routing_policy.RoutingPolicy()
+        elif self.model == 'openconfig-interfaces':
+            from ydk.models.openconfig_bgp_policy import openconfig_interfaces
+            self.binding = openconfig_interfaces.Interfaces()
         else:
             raise NotImplemented
 

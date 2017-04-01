@@ -1,39 +1,60 @@
 ---
 config:
-  junos:
-    interfaces:
-      interface:
-        - name: ge-0/0/0
-          unit:
-            - name: '0'
-              family:
-                inet:
+  openconfig-interfaces:
+    interface:
+      - name: ge-0/0/0
+        subinterfaces:
+          subinterface:
+            - index: 0
+              ipv4:
+                addresses:
                   address:
-                    - name: '12.12.12.2/24'
-        - name: lo0
-          unit:
-            - name: '0'
-              family:
-                inet:
+                    - ip: 12.12.12.2/24
+                      config:
+                        ip: 12.12.2.2
+                        prefix_length: 24
+      - name: lo0
+        subinterfaces:
+          subinterface:
+            - index: 0
+              ipv4:
+                addresses:
                   address:
-                    - name: '2.2.2.2/32'
-    routing_options:
-      autonomous_system:
-        as_number: '65222'
-    policy_options:
-      policy_statement:
+                    - ip: 2.2.2.2/32
+                      config:
+                        ip: 2.2.2.2
+                        prefix_length: 32
+  openconfig-policy:
+    policy_definitions:
+      policy_definition:
         - name: CONNECTED->BGP
-          from_:
-            protocol:
-              - ? direct
-          then:
-            accept: empty
-    protocols:
-      bgp:
-        group:
-          - name: YANG
-            export:
-              - CONNECTED->BGP
-            neighbor:
-              - name: 12.12.12.1
-                peer_as: '65111'
+          statements:
+            statement:
+              - name: Loopback0
+                conditions:
+                  match_interface:
+                    config:
+                      interface: lo0
+                      subinterface: 0
+                actions:
+                  config:
+                    accept_route: empty
+  openconfig-bgp:
+    global_:
+      config:
+        as_: 65222
+    neighbors:
+      neighbor:
+        - neighbor_address: 12.12.12.1
+          config:
+            peer_group: YANG
+            peer_as: 65111
+    peer_groups:
+      peer_group:
+        - peer_group_name: YANG
+          config:
+            peer_as: 65111
+          apply_policy:
+            config:
+              export_policy:
+                - CONNECTED->BGP

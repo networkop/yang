@@ -1,0 +1,20 @@
+---
+    global_:
+      config:
+        as_: 65222
+    neighbors:
+      neighbor:
+        - neighbor_address: 12.12.12.1
+          config:
+            peer_group: YANG
+            peer_as: 65111
+    peer_groups:
+      peer_group:
+        - peer_group_name: YANG
+          config:
+            peer_as: 65111
+          apply_policy:
+            config:
+              export_policy: 
+                - CONNECTED->BGP
+          

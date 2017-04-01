@@ -1,0 +1,35 @@
+{  
+  "name":"openconfig-bgp-policy",
+  "version":"0.1.1",
+  "ydk_version":"0.5.0",
+  "author":"networkop",
+  "copyright":"Cisco",
+  "description":"Openconfig BGP and policy models",
+  "models":{  
+    "git":[  
+      {  
+        "url":"https://github.com/openconfig/public.git",
+        "commits":[  
+          {  
+            "dir":[  
+              "release/models"
+            ]
+          }
+        ]
+      },
+      {
+        "url":"https://github.com/YangModels/yang.git",
+        "commits":[
+          {
+            "file":[
+              "standard/ietf/RFC/ietf-yang-types.yang",
+              "standard/ietf/RFC/ietf-inet-types.yang",
+              "standard/ietf/RFC/ietf-interfaces@2014-05-08.yang",
+              "standard/ietf/RFC/iana-if-type.yang"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

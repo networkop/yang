@@ -1,0 +1,15 @@
+---
+  policy_definitions:
+    policy_definition:
+      - name: CONNECTED->BGP
+        statements:
+          statement:
+            - name: Loopback0
+              conditions:
+                match_interface:
+                  config: 
+                    interface: lo0
+                    subinterface: 0
+              actions:
+                config:
+                  accept_route: empty

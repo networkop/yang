@@ -1,10 +1,10 @@
 # Example workflow of using YDK to configure JUNOS devices
 
-Each of the following two workflows accomplish the same thing:
+Each of the following two workflows accomplishes the same thing:
 
-* Configure `ge-0/0/0` and `lo0` interfaces
-* Configure BGP peering with device `12.12.12.1` in remote-as `65111`
-* Export IP prefix of `lo0` into BGP RIB
+* Configures `ge-0/0/0` and `lo0` interfaces
+* Configures BGP peering with device `12.12.12.1` in remote-as `65111`
+* Exports IP prefix of `lo0` into BGP RIB
 
 ## (Option A) JUNOS native YANG model
 
